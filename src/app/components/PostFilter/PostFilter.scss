@@ -1,0 +1,19 @@
+@import "../../utils/mixins.scss";
+
+.filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 30px;
+
+  &__categories {
+    height: 40px;
+    padding: 10px;
+  }
+  &__query {
+    width: 50%;
+    height: 40px;
+    padding: 10px;
+  }
+}
