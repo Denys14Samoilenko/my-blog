@@ -15,7 +15,7 @@ interface PostDetailsPageProps {
 
 const fetchUser = async (id: string): Promise<User | undefined> => {
   try {
-    const response = await fetch(`${process.env.API_HOST}/users`, {
+    const response = await fetch(`${process.env.API_HOST}/users/${id}`, {
       cache: "no-store",
     });
 
@@ -25,17 +25,11 @@ const fetchUser = async (id: string): Promise<User | undefined> => {
       );
     }
 
-    const data = await response.json();
-    const user = data.find(({ userId }: any) => userId === +id);
-
-    if (!user) {
-      return undefined;
-    }
+    const user = await response.json();
 
     return user as User;
   } catch (error) {
     console.error("Произошла ошибка:", error);
-    return undefined;
   }
 };
 
