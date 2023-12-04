@@ -1,9 +1,11 @@
+import React from "react";
 import Link from "next/link";
-import { postDate } from "../helpers/functions";
 import styles from "../page.module.css";
 import "./Post.scss";
 import Image from "next/image";
 import Head from "next/head";
+import { User } from "../types/User";
+import { postDate } from "../helpers/functions";
 
 interface PostDetailsPageProps {
   params: {
@@ -11,10 +13,7 @@ interface PostDetailsPageProps {
   };
 }
 
-const PostDetailsPage: React.FC<PostDetailsPageProps> = async ({ params }) => {
-  const { id } = params;
-  let user;
-
+const fetchUser = async (id: string): Promise<User | undefined> => {
   try {
     const response = await fetch(`${process.env.API_HOST}/users`, {
       cache: "no-store",
@@ -27,30 +26,72 @@ const PostDetailsPage: React.FC<PostDetailsPageProps> = async ({ params }) => {
     }
 
     const data = await response.json();
-
-    user = data.find(({ userId }: any) => userId === +id);
+    const user = data.find(({ userId }: any) => userId === +id);
 
     if (!user) {
-      return (
-        <main className={styles.main}>
-          <p className="post-error">Sorry, post not found</p>
-          <Link className="back-link" href="/">
-            Back to main page
-          </Link>
-        </main>
-      );
+      return undefined;
     }
+
+    return user as User;
   } catch (error) {
-    console.error("Произошла ошибка:");
+    console.error("Произошла ошибка:", error);
+    return undefined;
+  }
+};
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<any> {
+  const { id } = params;
+  const user = await fetchUser(id);
+
+  if (!user) {
+    return {
+      title: "Post Not Found",
+      description: "Sorry, post not found",
+    };
+  }
+
+  return {
+    title: user.title,
+    description: user.description,
+    openGraph: {
+      title: user.title,
+      description: user.description,
+      images: user.image,
+    },
+  };
+}
+
+const PostDetailsPage: React.FC<PostDetailsPageProps> = async ({ params }) => {
+  const { id } = params;
+
+  const user = await fetchUser(id);
+  const metadata = await generateMetadata({ params });
+
+  if (!user) {
+    return (
+      <main className={styles.main}>
+        <p className="post-error">Sorry, post not found</p>
+        <Link className="back-link" href="/">
+          Back to main page
+        </Link>
+      </main>
+    );
   }
 
   return (
     <>
       <Head>
-        <title>{user?.title}</title>
-        <meta property="og:title" content={user?.title} />
-        <meta property="og:description" content={user?.description} />
-        <meta property="og:image" content={user?.image} />
+        <title>{metadata.title}</title>
+        <meta property="og:title" content={metadata.openGraph.title} />
+        <meta
+          property="og:description"
+          content={metadata.openGraph.description}
+        />
+        <meta property="og:image" content={metadata.openGraph.image} />
       </Head>
       <main className={styles.main}>
         <div className="post">
