@@ -3,6 +3,7 @@ import { postDate } from "../helpers/functions";
 import styles from "../page.module.css";
 import "./Post.scss";
 import Image from "next/image";
+import Head from "next/head";
 
 interface PostDetailsPageProps {
   params: {
@@ -45,6 +46,12 @@ const PostDetailsPage: React.FC<PostDetailsPageProps> = async ({ params }) => {
 
   return (
     <>
+      <Head>
+        <title>{user?.title}</title>
+        <meta property="og:title" content={user?.title} />
+        <meta property="og:description" content={user?.description} />
+        <meta property="og:image" content={user?.image} />
+      </Head>
       <main className={styles.main}>
         <div className="post">
           <Image
