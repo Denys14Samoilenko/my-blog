@@ -3,7 +3,6 @@ import Link from "next/link";
 import styles from "../page.module.css";
 import "./Post.scss";
 import Image from "next/image";
-import Head from "next/head";
 import { User } from "../types/User";
 import { postDate } from "../helpers/functions";
 
@@ -54,7 +53,14 @@ export async function generateMetadata({
     openGraph: {
       title: user.title,
       description: user.description,
-      images: user.image,
+      images: [
+        {
+          url: user.image,
+          alt: `Post ${user.title} image`,
+          width: 1200,
+          height: 630,
+        },
+      ],
     },
   };
 }
@@ -78,15 +84,6 @@ const PostDetailsPage: React.FC<PostDetailsPageProps> = async ({ params }) => {
 
   return (
     <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta property="og:title" content={metadata.openGraph.title} />
-        <meta
-          property="og:description"
-          content={metadata.openGraph.description}
-        />
-        <meta property="og:image" content={metadata.openGraph.image} />
-      </Head>
       <main className={styles.main}>
         <div className="post">
           <Image
