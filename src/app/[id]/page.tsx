@@ -58,8 +58,8 @@ export async function generateMetadata({
         {
           url: user.image,
           alt: `Post ${user.title} image`,
-          width: 1200,
-          height: 630,
+          width: 800,
+          height: 600,
         },
       ],
     },
@@ -100,8 +100,8 @@ const PostDetailsPage: React.FC<PostDetailsPageProps> = async ({ params }) => {
             className="post__image"
             src={user?.image}
             alt="post image"
-            width={1200}
-            height={630}
+            width={800}
+            height={600}
           />
           <div className="post__content">
             <div className="post__body">
