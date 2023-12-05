@@ -72,7 +72,7 @@ const PostDetailsPage: React.FC<PostDetailsPageProps> = async ({ params }) => {
   const user = await fetchUser(id);
   const metadata = await generateMetadata({ params });
 
-  if (!user) {
+  if (user?.userId !== +id) {
     return (
       <main className={styles.main}>
         <p className="post-error">Sorry, post not found</p>
@@ -100,8 +100,8 @@ const PostDetailsPage: React.FC<PostDetailsPageProps> = async ({ params }) => {
             className="post__image"
             src={user?.image}
             alt="post image"
-            width={800}
-            height={600}
+            width={1200}
+            height={630}
           />
           <div className="post__content">
             <div className="post__body">
