@@ -90,8 +90,8 @@ const PostDetailsPage: React.FC<PostDetailsPageProps> = async ({ params }) => {
             className="post__image"
             src={user?.image}
             alt="post image"
-            width={500}
-            height={500}
+            width={1200}
+            height={630}
           />
           <div className="post__content">
             <div className="post__body">
