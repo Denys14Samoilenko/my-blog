@@ -9,6 +9,7 @@ module.exports = {
       "picsum.photos",
       "avatars.githubusercontent.com",
       "cloudflare-ipfs.com",
+      "fastly.picsum.photos",
     ],
   },
 };

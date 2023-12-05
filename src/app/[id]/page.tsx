@@ -58,8 +58,8 @@ export async function generateMetadata({
         {
           url: user.image,
           alt: `Post ${user.title} image`,
-          width: 800,
-          height: 600,
+          width: 1200,
+          height: 630,
         },
       ],
     },
