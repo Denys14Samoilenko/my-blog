@@ -5,6 +5,7 @@ import "./Post.scss";
 import Image from "next/image";
 import { User } from "../types/User";
 import { postDate } from "../helpers/functions";
+import Head from "next/head";
 
 interface PostDetailsPageProps {
   params: {
@@ -84,6 +85,15 @@ const PostDetailsPage: React.FC<PostDetailsPageProps> = async ({ params }) => {
 
   return (
     <>
+      <Head>
+        <title>{metadata.title}</title>
+        <meta property="og:title" content={metadata.openGraph.title} />
+        <meta
+          property="og:description"
+          content={metadata.openGraph.description}
+        />
+        <meta property="og:image" content={metadata.openGraph.images[0]} />
+      </Head>
       <main className={styles.main}>
         <div className="post">
           <Image
