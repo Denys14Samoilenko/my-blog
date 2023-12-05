@@ -5,16 +5,8 @@
   @include flexCenter;
 
   &__image {
-    max-width: 300px;
-    max-height: 250px;
-    @media (min-width: 640px) {
-      max-width: 600px;
-      max-height: 400px;
-    }
-    @media (min-width: 980px) {
-      max-width: 800px;
-      max-height: 600px;
-    }
+    max-width: 1200px;
+    max-height: 630px;
   }
   &__body {
     @include flexCenter;
