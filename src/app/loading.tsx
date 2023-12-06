@@ -1,11 +1,11 @@
-import styles from './page.module.css'
+import "./page.scss";
 
 export default function Loading() {
   return (
-    <main className={styles.main}>
-      <div className={styles.loader}>
-        <div className={styles.content} />
+    <main className="main">
+      <div className="loader">
+        <div className="content" />
       </div>
     </main>
-  )
+  );
 }

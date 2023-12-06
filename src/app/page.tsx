@@ -1,4 +1,4 @@
-import PostsPage from "./components/PostsPage";
+import { PostsPage } from "@/app/components";
 
 export default async function Home() {
   try {
@@ -7,19 +7,16 @@ export default async function Home() {
     });
 
     if (!response.ok) {
-      throw new Error(`Ошибка при загрузке данных: ${response.status}`);
+      throw new Error(`Error loading the data: ${response.status}`);
     }
 
     const data = await response.json();
 
     return <PostsPage users={data} />;
   } catch (error) {
-    console.error("Произошла ошибка:");
+    console.error("Error has occurred:");
     return (
-      <div>
-        Произошла ошибка при загрузке данных. Пожалуйста, повторите попытку
-        позже.
-      </div>
+      <div>There was an error loading the data. Please try again. later.</div>
     );
   }
 }

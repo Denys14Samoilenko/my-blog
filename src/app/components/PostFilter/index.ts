@@ -1,2 +1,1 @@
-import PostFilter from './PostFilter'
-export default PostFilter
+export { default as PostFilter } from "./PostFilter";

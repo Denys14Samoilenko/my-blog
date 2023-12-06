@@ -1,14 +1,15 @@
 "use client";
-import Link from "next/link";
-import { User } from "../../types/User";
-import PostFilter from "../PostFilter";
-import styles from "../../page.module.css";
-import "../../utils/columns.scss";
-import "../../utils/width.scss";
-import Card from "../Card";
+
 import { useState } from "react";
+
+import Link from "next/link";
+import { Card, PostFilter } from "@/app/components";
 import { getFilteredUsers } from "@/app/helpers/functions";
-import { Category } from "@/app/types/Category";
+import { Category, User } from "@/app/types";
+
+import "@/app/page.scss";
+import "@/app/utils/columns.scss";
+import "@/app/utils/width.scss";
 
 type Props = {
   users: User[];
@@ -21,7 +22,7 @@ const PostsPage: React.FC<Props> = ({ users }) => {
   const visibleUsers = getFilteredUsers(users, query, category);
 
   return (
-    <main className={styles.main}>
+    <main className="main">
       <PostFilter
         query={query}
         setQuery={setQuery}

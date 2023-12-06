@@ -3,9 +3,9 @@ import "./PostFilter.scss";
 
 type Props = {
   query: string;
-  setQuery: (value: any) => void;
+  setQuery: (value: string) => void;
   category: Category;
-  setCategory: (value: any) => void;
+  setCategory: (value: Category) => void;
 };
 
 const PostFilter: React.FC<Props> = ({

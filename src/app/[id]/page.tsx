@@ -1,11 +1,14 @@
 import React from "react";
+
 import Link from "next/link";
-import styles from "../page.module.css";
-import "./Post.scss";
 import Image from "next/image";
-import { User } from "../types/User";
-import { postDate } from "../helpers/functions";
 import Head from "next/head";
+
+import { User } from "@/app/types/User";
+import { postDate } from "@/app/helpers/functions";
+
+import "@/app/page.scss";
+import "./Post.scss";
 
 interface PostDetailsPageProps {
   params: {
@@ -29,7 +32,7 @@ const fetchUser = async (id: string): Promise<User | undefined> => {
 
     return user as User;
   } catch (error) {
-    console.error("Произошла ошибка:", error);
+    console.error("Error has occurred:", error);
   }
 };
 
@@ -74,7 +77,7 @@ const PostDetailsPage: React.FC<PostDetailsPageProps> = async ({ params }) => {
 
   if (user?.userId !== +id) {
     return (
-      <main className={styles.main}>
+      <main className="main">
         <p className="post-error">Sorry, post not found</p>
         <Link className="back-link" href="/">
           Back to main page
@@ -94,7 +97,7 @@ const PostDetailsPage: React.FC<PostDetailsPageProps> = async ({ params }) => {
         />
         <meta property="og:image" content={metadata.openGraph.images[0]} />
       </Head>
-      <main className={styles.main}>
+      <main className="main">
         <div className="post">
           <Image
             className="post__image"

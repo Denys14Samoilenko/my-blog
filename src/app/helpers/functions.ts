@@ -1,5 +1,4 @@
-import { Category } from "../types/Category";
-import { User } from "../types/User";
+import { User, Category } from "@/app/types";
 
 export const postDate = (date: any) => {
   const currentDate = new Date();

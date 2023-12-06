@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+
 import { Roboto } from "next/font/google";
-import "./globals.css";
-import "./utils/normalize.scss";
-import ToTopBtn from "./components/ToTopBtn";
-import Header from "./components/Header";
+import { Header, ToTopBtn } from "./components";
+
+import "./globals.scss";
+import "@/app/utils/normalize.scss";
 
 const roboto = Roboto({ weight: "400", subsets: ["latin"] });
 

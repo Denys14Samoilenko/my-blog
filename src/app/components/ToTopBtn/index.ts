@@ -1,3 +1,1 @@
-import ToTopBtn from './ToTopBtn'
-
-export default ToTopBtn
+export { default as ToTopBtn } from "./ToTopBtn";
