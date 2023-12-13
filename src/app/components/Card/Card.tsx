@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { User } from "@/app/types/User";
 import { postDate } from "@/app/helpers/functions";
+import { FavouriteButton } from "@/app/components";
 
 import "./Card.scss";
 
@@ -10,7 +11,8 @@ type Props = {
 };
 
 const Card: React.FC<Props> = ({ user }) => {
-  const { username, city, avatar, description, title, image, date } = user;
+  const { userId, username, city, avatar, description, title, image, date } =
+    user;
 
   return (
     <div className="card">
@@ -49,6 +51,7 @@ const Card: React.FC<Props> = ({ user }) => {
           </p>
         </div>
       </div>
+      <FavouriteButton user={user} />
     </div>
   );
 };

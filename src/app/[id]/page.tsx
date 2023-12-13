@@ -6,6 +6,7 @@ import Head from "next/head";
 
 import { User } from "@/app/types/User";
 import { postDate } from "@/app/helpers/functions";
+import { BackToMainBtn } from "../components";
 
 import "@/app/page.scss";
 import "./Post.scss";
@@ -146,10 +147,8 @@ const PostDetailsPage: React.FC<PostDetailsPageProps> = async ({ params }) => {
               })}
             </div>
           </div>
-          <Link className="back-link" href="/">
-            Back to main page
-          </Link>
         </div>
+        <BackToMainBtn />
       </main>
     </>
   );

@@ -32,12 +32,18 @@ const PostFilter: React.FC<Props> = ({
         onChange={handleSelectChange}
       >
         {Object.values(Category).map((selectedType) => (
-          <option key={selectedType} value={selectedType}>
+          <option
+            key={selectedType}
+            value={selectedType}
+            className="filter__category"
+          >
             {selectedType.charAt(0).toUpperCase() + selectedType.slice(1)}
           </option>
         ))}
       </select>
+
       <input
+        id="filter__query"
         className="filter__query"
         type="text"
         value={query}

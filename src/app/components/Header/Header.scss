@@ -1,14 +1,27 @@
+@import "../../utils/variables.scss";
 .header {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   padding: 16px 70px;
-  background-color: rgba($color: #000000, $alpha: 0.2);
+  background-color: rgba($color: $highlight-color, $alpha: 0.2);
 }
 
 .logo-link {
   transition: transform 0.5s;
   &:hover {
     transform: scale(1.4);
+  }
+}
+.favourites-nav {
+  padding: 5px 10px;
+  border: 2px solid $dark-text-color;
+  border-radius: 5px;
+  transition: all 0.5s;
+
+  &:hover {
+    border-color: $highlight-color;
+    color: $highlight-color;
+    background-color: $dark-text-color;
   }
 }

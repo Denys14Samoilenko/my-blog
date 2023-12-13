@@ -10,6 +10,7 @@ import { Category, User } from "@/app/types";
 import "@/app/page.scss";
 import "@/app/utils/columns.scss";
 import "@/app/utils/width.scss";
+import ReduxPersistor from "../ReduxPersistor/ReduxPersistor";
 
 type Props = {
   users: User[];
@@ -36,7 +37,9 @@ const PostsPage: React.FC<Props> = ({ users }) => {
             key={user.userId}
           >
             <Link href={`/${user.userId}`}>
-              <Card user={user} />
+              <ReduxPersistor>
+                <Card user={user} />
+              </ReduxPersistor>
             </Link>
           </div>
         ))}

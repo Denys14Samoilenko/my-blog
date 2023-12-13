@@ -1,4 +1,4 @@
-@import "@/app/utils/mixins.scss";
+@import "../../utils/variables.scss";
 
 .filter {
   display: flex;
@@ -10,10 +10,30 @@
   &__categories {
     height: 40px;
     padding: 10px;
+    background-color: $secondary-text-color;
+    outline: 0;
+    border-radius: 5px;
+    color: $highlight-color;
+  }
+  &__category {
+    color: $dark-text-color;
   }
   &__query {
     width: 50%;
     height: 40px;
     padding: 10px;
+    background-color: $secondary-text-color;
+    border-radius: 5px;
+    outline: 0;
+    border: 1px solid $dark-text-color;
+
+    &::placeholder {
+      color: $highlight-color;
+    }
+
+    &:focus {
+      background-color: $white-text-color;
+      border-color: $highlight-color;
+    }
   }
 }

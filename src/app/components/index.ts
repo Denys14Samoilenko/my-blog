@@ -3,3 +3,7 @@ export { Header } from "@/app/components/Header";
 export { PostFilter } from "@/app/components/PostFilter";
 export { PostsPage } from "@/app/components/PostsPage";
 export { ToTopBtn } from "@/app/components/ToTopBtn";
+export { FavouritePage } from "@/app/components/FavouritePage";
+export { FavouriteButton } from "@/app/components/FavouriteButton";
+export { BackToMainBtn } from "@/app/components/BackToMainBtn";
+export { Loader } from "@/app/components/Loader";

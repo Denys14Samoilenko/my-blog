@@ -7,6 +7,9 @@ const Header = () => {
       <Link href="/" id="logo" className="logo-link">
         <i className="icon-blogger2 "></i>
       </Link>
+      <Link href="/favourites" className="favourites-nav">
+        Favourite Posts
+      </Link>
     </header>
   );
 };

@@ -29,7 +29,7 @@ const ToTopBtn: React.FC = () => {
       type="button"
       onClick={() => scrollTo({ top: 0, behavior: "smooth" })}
     >
-      To top
+      <span className="top-btn-arrow">&#8593;</span> To top
     </button>
   );
 };
