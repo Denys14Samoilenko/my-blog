@@ -12,6 +12,7 @@
     padding: 10px;
     background-color: $secondary-text-color;
     outline: 0;
+    border: 1px solid $dark-text-color;
     border-radius: 5px;
     color: $highlight-color;
   }
@@ -26,6 +27,7 @@
     border-radius: 5px;
     outline: 0;
     border: 1px solid $dark-text-color;
+    color: $dark-text-color;
 
     &::placeholder {
       color: $highlight-color;

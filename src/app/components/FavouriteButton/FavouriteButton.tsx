@@ -14,7 +14,7 @@ const FavouriteButton: React.FC<Props> = ({ user }) => {
   const { userId } = user;
 
   const isProductFavorite = posts.some(
-    (onePost: any) => onePost.userId === userId
+    (onePost: User) => onePost.userId === userId
   );
 
   const dispatch = useAppDispatch();
