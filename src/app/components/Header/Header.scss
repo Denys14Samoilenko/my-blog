@@ -1,7 +1,7 @@
 @import "../../utils/variables.scss";
 .header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   padding: 16px 70px;
   background-color: rgba($color: $highlight-color, $alpha: 0.2);

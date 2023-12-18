@@ -1,41 +1,33 @@
 @import "../../utils/variables.scss";
 
 .filter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 8px;
   margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 
   &__categories {
-    height: 40px;
-    padding: 10px;
+    width: 100%;
     background-color: $secondary-text-color;
-    outline: 0;
-    border: 1px solid $dark-text-color;
-    border-radius: 5px;
-    color: $highlight-color;
-  }
-  &__category {
-    color: $dark-text-color;
+    @media (min-width: 768px) {
+      width: 30%;
+    }
   }
   &__query {
-    width: 50%;
-    height: 40px;
-    padding: 10px;
-    background-color: $secondary-text-color;
-    border-radius: 5px;
-    outline: 0;
-    border: 1px solid $dark-text-color;
-    color: $dark-text-color;
-
-    &::placeholder {
-      color: $highlight-color;
-    }
-
-    &:focus {
-      background-color: $white-text-color;
-      border-color: $highlight-color;
-    }
+    width: 100%;
   }
+}
+
+.css-6hp17o-MuiList-root-MuiMenu-list {
+  background-color: $secondary-text-color;
+}
+.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root:hover {
+  background-color: $highlight-color;
+}
+
+.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected {
+  pointer-events: none;
 }
