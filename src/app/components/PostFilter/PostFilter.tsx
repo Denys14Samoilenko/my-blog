@@ -1,12 +1,13 @@
-import { Category } from "@/app/types/Category";
-import "./PostFilter.scss";
-
+"use client";
 import * as React from "react";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { TextField } from "@mui/material";
+
+import { Category } from "@/app/types/Category";
+import "./PostFilter.scss";
 
 type Props = {
   query: string;

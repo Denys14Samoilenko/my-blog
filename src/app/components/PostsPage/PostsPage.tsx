@@ -32,9 +32,9 @@ const PostsPage: React.FC<Props> = ({ users }) => {
         category={category}
         setCategory={setCategory}
       />
-      {!!visibleUsers.length ? (
-        <div className="row">
-          {visibleUsers.map((user) => (
+      <div className="row">
+        {!!visibleUsers.length ? (
+          visibleUsers.map((user) => (
             <div
               className="column width-1-1 width-1-2-md width-1-3-lg"
               key={user.userId}
@@ -45,11 +45,13 @@ const PostsPage: React.FC<Props> = ({ users }) => {
                 </ReduxPersistor>
               </Link>
             </div>
-          ))}
-        </div>
-      ) : (
-        <h2>No post filtering was found for these parameters</h2>
-      )}
+          ))
+        ) : (
+          <h2 className="filter__error">
+            No post filtering was found for these parameters
+          </h2>
+        )}
+      </div>
     </main>
   );
 };
