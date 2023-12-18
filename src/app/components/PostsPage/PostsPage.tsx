@@ -11,6 +11,7 @@ import "@/app/page.scss";
 import "@/app/utils/columns.scss";
 import "@/app/utils/width.scss";
 import ReduxPersistor from "../ReduxPersistor/ReduxPersistor";
+import { useDebounce } from "@/app/store/hooks";
 
 type Props = {
   users: User[];
@@ -19,8 +20,9 @@ type Props = {
 const PostsPage: React.FC<Props> = ({ users }) => {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<Category>(Category.All);
+  const debouncedSearch = useDebounce(query);
 
-  const visibleUsers = getFilteredUsers(users, query, category);
+  const visibleUsers = getFilteredUsers(users, debouncedSearch, category);
 
   return (
     <main className="main">
