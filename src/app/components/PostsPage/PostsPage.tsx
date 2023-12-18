@@ -32,20 +32,24 @@ const PostsPage: React.FC<Props> = ({ users }) => {
         category={category}
         setCategory={setCategory}
       />
-      <div className="row">
-        {visibleUsers.map((user) => (
-          <div
-            className="column width-1-1 width-1-2-md width-1-3-lg"
-            key={user.userId}
-          >
-            <Link href={`/${user.userId}`}>
-              <ReduxPersistor>
-                <Card user={user} />
-              </ReduxPersistor>
-            </Link>
-          </div>
-        ))}
-      </div>
+      {!!visibleUsers.length ? (
+        <div className="row">
+          {visibleUsers.map((user) => (
+            <div
+              className="column width-1-1 width-1-2-md width-1-3-lg"
+              key={user.userId}
+            >
+              <Link href={`/${user.userId}`}>
+                <ReduxPersistor>
+                  <Card user={user} />
+                </ReduxPersistor>
+              </Link>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <h2>No post filtering was found for these parameters</h2>
+      )}
     </main>
   );
 };
