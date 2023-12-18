@@ -1,8 +1,11 @@
 .main {
-  padding-block: 1rem;
+  padding: 1rem;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  @media (min-width: 768px) {
+    padding: 4rem;
+  }
 }
 
 @keyframes load8 {
