@@ -32,6 +32,7 @@ const PostsPage: React.FC<Props> = ({ users }) => {
         category={category}
         setCategory={setCategory}
       />
+
       <div className="row">
         {!!visibleUsers.length ? (
           visibleUsers.map((user) => (

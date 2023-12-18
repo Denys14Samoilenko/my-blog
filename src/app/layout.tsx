@@ -1,3 +1,5 @@
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter"; // or `v14-appRouter` if you are using Next.js v14
+
 import type { Metadata } from "next";
 
 import { Roboto } from "next/font/google";
@@ -21,9 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <Header />
-        <div className="container">{children}</div>
-        <ToTopBtn />
+        <AppRouterCacheProvider>
+          <Header />
+          <div className="container">{children}</div>
+          <ToTopBtn />
+        </AppRouterCacheProvider>
       </body>
     </html>
   );

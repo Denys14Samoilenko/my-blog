@@ -3,8 +3,8 @@
 .filter {
   display: flex;
   flex-direction: column;
+  margin-bottom: 30px !important;
   gap: 12px;
-  margin-bottom: 30px;
 
   @media (min-width: 768px) {
     flex-direction: row;
@@ -32,14 +32,10 @@
 .css-6hp17o-MuiList-root-MuiMenu-list {
   background-color: $secondary-text-color;
 }
-.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root:hover {
-  background-color: $highlight-color;
+.mui-kk1bwy-MuiButtonBase-root-MuiMenuItem-root:hover {
+  background-color: $highlight-color !important;
 }
 
-.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected {
+.mui-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected {
   pointer-events: none;
-}
-
-.css-mrof74 {
-  margin-bottom: 30px;
 }
